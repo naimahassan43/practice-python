@@ -26,3 +26,15 @@ def close(ssh_client):
     if ssh_client.get_transport().is_active() == True:
         print('Closing Connection')
         ssh_client.close()
+
+if __name__ == '__main__':
+    router1 = {'server_ip':'192.168.92.11', 'server_port':'22', 'user':'admin', 'passwd':'admin'}     
+    client = connect(**router1)
+    shell = get_shell(client)
+
+    send_command(shell, 'terminal length 0')
+    send_command(shell, 'show version')
+    send_command(shell, 'show ip interface brief')
+
+    output = show(shell)
+    print(output)
