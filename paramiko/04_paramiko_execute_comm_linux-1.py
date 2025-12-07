@@ -4,7 +4,7 @@ import time
 ssh_client = paramiko.SSHClient()
 ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 
-linux = {'hostname':'192.168.92.130', 'port':'22', 'username':'admin', 'password':'admin'}
+linux = {'hostname':'192.168.92.130', 'port':'22', 'username':'admin', 'password':'pass123'}
 
 print(f'Connecting to {linux["hostname"]}')
 ssh_client.connect(**linux, look_for_keys=False, allow_agent=False)
